@@ -1,0 +1,25 @@
+D = [1,2,3]*3
+
+def glouton(s):
+
+    resultat = []
+    visites = []
+
+    for i in len(D):
+        visites.append(False)
+
+    visites[s] = True
+    x = s
+    succ = 0
+
+    while len(resultat != len(D)):
+        min = D[x][0]
+        for j in range(0, len(D)):
+            if min > D[x][j] > 0 and visites[j] is False:
+                succ = j
+        resultat.append(succ)
+        x = succ
+
+    return resultat
+
+
